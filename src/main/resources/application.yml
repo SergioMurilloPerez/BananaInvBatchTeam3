@@ -12,8 +12,8 @@ cloud.aws:
   stack.auto: false
   #  credentials.instance-profile: false
   credentials:
-    access-key: AKIAZRFGKQIDQQYG3JMQ
-    secret-key: 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
+    access-key: AKIAZRFGKQID4IK7BMNA
+    secret-key: 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
 
 # Logging
 logging:
@@ -30,7 +30,7 @@ spring:
     name: BananaInvoicesService
   sql.init.mode: always
   datasource:
-    url: "jdbc:h2:file:./invoicesdb"
+    url: "jdbc:h2:file:./invoicesdb;DB_CLOSE_ON_EXIT=FALSE"
     driverClassName: org.h2.Driver
     username: sa
     password: password

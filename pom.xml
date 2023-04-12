@@ -62,10 +62,10 @@
         </dependency>
 
         <!-- TODO: ADD spring-boot-starter-batch BY UNCOMMENT IT-->
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-batch</artifactId>
-        </dependency>-->
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -77,6 +77,11 @@
             <artifactId>spring-web</artifactId>
         </dependency>
 
+        <dependency>
+        	<groupId>com.javatunes.spring</groupId>
+        	<artifactId>lab04.1-multithread-step</artifactId>
+        	<version>1.0</version>
+        </dependency>
     </dependencies>
 
     <build>

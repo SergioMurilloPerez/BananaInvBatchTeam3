@@ -16,10 +16,14 @@ public class ReciboSimpleWriter implements ItemWriter<Object> {
         ReciboInvalido currentReciboInv = null;
         for (Object item : list) {
             currentRecibo = (Recibo) item;
+
+            
             if (!currentRecibo.isValido()) {
                 currentReciboInv = (ReciboInvalido) item;
+                currentReciboInv.setId(null);
                 System.out.printf("\t ...writing INVALIDO: %s\n", currentReciboInv);
             }else{
+            	currentRecibo.setId(null);
                 System.out.printf("\t ...writing VALIDO: %s\n", currentRecibo);
             }
         }
