@@ -13,6 +13,7 @@ import es.netmind.banana_invoices.batch.processor.ReciboValidoProcessor;
 import es.netmind.banana_invoices.batch.processor.SimpleProcessor;
 import es.netmind.banana_invoices.batch.reader.S3ReaderConfig;
 import es.netmind.banana_invoices.batch.reader.SimpleReader;
+import es.netmind.banana_invoices.batch.writer.ReciboJPAWriter;
 import es.netmind.banana_invoices.batch.writer.ReciboSimpleWriter;
 import es.netmind.banana_invoices.batch.writer.SimpleWriter;
 import es.netmind.banana_invoices.models.Recibo;
@@ -93,6 +94,11 @@ public class AppMainConfig {
     
     
     @Bean
+    ItemWriter<Object> s3JpaWriter(){
+    	return new ReciboJPAWriter();
+    }	
+    
+    @Bean
     public TaskExecutor taskExecutor() {
     	
     	ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();  	
@@ -136,7 +142,7 @@ public class AppMainConfig {
                 .<Recibo, Object>chunk(100)
                 .reader(s3Reader)
                 .processor(composeProcessor())
-                .writer(s3Writer())
+                .writer(s3JpaWriter())
                 .build();
     }
     
